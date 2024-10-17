@@ -6,17 +6,10 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-CORS(app, resources={
-    r"/*": {
-        "origins": ["http://localhost:5500"],
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type"]
-    }
-})
 
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'pdf'}
-
+CORS(app)
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
