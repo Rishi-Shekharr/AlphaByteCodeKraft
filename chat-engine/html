@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajna Notebook</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            padding: 1rem 0;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .search-container {
+            background-color: #f8fafc;
+            /* border-radius: 8px; */
+            /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); */
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .search-form {
+            display: flex;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #e2e8f0;
+            border-right: none;
+            border-radius: 6px 0 0 6px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            /* box-shadow: 0 0 0 3px #1abb3d; */
+        }
+
+        .search-button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #747474;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            /* background-color: #1abb3d; */
+            background-image: linear-gradient(to bottom right, blue,purple);
+        }
+
+        .results-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+        }
+
+        .results-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .result-item {
+            background-color: #f1f5f9;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .result-item:hover {
+            background-color: #e2e8f0;
+        }
+
+        footer {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Prajna Notebook</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="search-container">
+                <h2>Search for anything</h2>
+                <form class="search-form" onsubmit="performSearch(); return false;">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Enter your search query">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+            
+            <div id="resultsContainer" class="results-container hidden">
+                <h2>Search Results</h2>
+                <div id="results" class="results-list"></div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Sample data for search (replace this with your actual data or API call)
+
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const results = document.getElementById('results');
+            const query = searchInput.value.toLowerCase();
+
+            results.innerHTML = filteredResults.length > 0
+                ? filteredResults.map(item => `
+                    <div class="result-item">
+                        <p>${item}</p>
+                                            </div>
+                `).join('')
+                : '<p>No results found.</p>';
+
+            resultsContainer.classList.remove('hidden');
+            // resultsContainer.classList.add('hidden');
+       }
+    </script>
+</body>
+</html>
